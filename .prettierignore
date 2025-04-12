@@ -1,0 +1,5 @@
+dist/
+coverage/
+yarn.lock
+src/lang/translations/**/*.yaml
+storybook-static/

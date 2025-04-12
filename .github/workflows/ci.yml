@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.9
+          cache: 'yarn'
+      - name: Install modules
+        run: yarn --frozen-lockfile
+      - name: Check format with prettier
+        run: yarn prettier:check
+      - name: Check code with eslint
+        run: yarn eslint:check --max-warnings 0
+      - name: Check type-safety
+        run: yarn typecheck

@@ -71,7 +71,8 @@ export const LoginPage = () => {
           </div>
 
           <div className="field">
-            <span className="p-float-label">
+            <span 
+            className="p-float-label">
               <Password
                 id="password"
                 name="password"
