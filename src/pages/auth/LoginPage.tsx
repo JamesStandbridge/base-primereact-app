@@ -33,10 +33,10 @@ export const LoginPage = () => {
           },
           onError: (error) => {
             reject(error);
-          }
+          },
         });
       });
-      
+
       const isAuthenticated = useAuthStore.getState().isAuthenticated;
       if (isAuthenticated) {
         const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/';
@@ -56,38 +56,23 @@ export const LoginPage = () => {
         <div className="text-center mb-4">
           <h2 className="text-3xl font-bold">Connexion</h2>
         </div>
-        
+
         <form onSubmit={handleSubmit} className="flex flex-column gap-3">
           <div className="field">
             <span className="p-float-label">
-              <InputText
-                id="identifier"
-                name="identifier"
-                className="w-full"
-                required
-              />
+              <InputText id="identifier" name="identifier" className="w-full" required />
               <label htmlFor="identifier">Email ou nom d'utilisateur</label>
             </span>
           </div>
 
           <div className="field">
-            <span 
-            className="p-float-label">
-              <Password
-                id="password"
-                name="password"
-                className="w-full"
-                required
-                toggleMask
-                feedback={false}
-              />
+            <span className="p-float-label">
+              <Password id="password" name="password" className="w-full" required toggleMask feedback={false} />
               <label htmlFor="password">Mot de passe</label>
             </span>
           </div>
 
-          {error && (
-            <Message severity="error" text={error} />
-          )}
+          {error && <Message severity="error" text={error} />}
 
           <Button
             type="submit"
@@ -99,4 +84,4 @@ export const LoginPage = () => {
       </Card>
     </div>
   );
-}; 
+};

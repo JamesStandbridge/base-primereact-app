@@ -9,11 +9,12 @@ export function useLogin(options?: MutationOptions<Token, LoginRequest>) {
   const setAuth = useAuthStore((state) => state.setAuth);
   const setToken = useAuthStore((state) => state.setToken);
   const { refetch: fetchUser } = useGetCurrentUser();
-  
+
   const { mutate: login, ...rest } = useApiMutation<Token, LoginRequest>(
-    (data) => AuthService.loginForAccessTokenApiOptiboisV1AuthTokenPost({
-      requestBody: data
-    }),
+    (data) =>
+      AuthService.loginForAccessTokenApiOptiboisV1AuthTokenPost({
+        requestBody: data,
+      }),
     {
       ...options,
       onSuccess: async (token) => {
@@ -23,7 +24,7 @@ export function useLogin(options?: MutationOptions<Token, LoginRequest>) {
           setAuth(result.data, token.access_token);
         }
       },
-    }
+    },
   );
 
   return { login, ...rest };
@@ -42,4 +43,4 @@ export function useIsAuthenticated() {
 
 export function useCurrentUser() {
   return useAuthStore((state) => state.user);
-} 
+}

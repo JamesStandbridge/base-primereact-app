@@ -6,7 +6,6 @@
  * Schéma pour la requête de connexion.
  */
 export type LoginRequest = {
-    identifier: string;
-    password: string;
+  identifier: string;
+  password: string;
 };
-

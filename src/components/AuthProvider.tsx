@@ -3,8 +3,6 @@ import { useAuthStore } from '@/store/authStore';
 import { useGetCurrentUser } from '@/api/hooks/users/useUsers';
 import { validateToken } from '@/utils';
 
-
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const { refetch: fetchUser } = useGetCurrentUser();
   const token = useAuthStore((state) => state.token);
@@ -17,7 +15,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const initializeAuth = async () => {
       if (isInitialized.current) return;
       isInitialized.current = true;
-      
+
       if (token) {
         if (!validateToken(token)) {
           clearAuth();
@@ -42,4 +40,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [token, user, fetchUser, setAuth, clearAuth]);
 
   return <>{children}</>;
-} 
+}

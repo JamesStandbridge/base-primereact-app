@@ -1,10 +1,4 @@
-import { 
-  useQuery, 
-  useMutation, 
-  UseQueryOptions, 
-  UseMutationOptions,
-  QueryKey 
-} from '@tanstack/react-query';
+import { useQuery, useMutation, UseQueryOptions, UseMutationOptions, QueryKey } from '@tanstack/react-query';
 import { OpenAPI } from '../generated/core/OpenAPI';
 import axios from 'axios';
 import { useAuthStore } from '../../store/authStore';
@@ -36,17 +30,10 @@ OpenAPI.HEADERS = {
 export type QueryOptions<TData> = Omit<UseQueryOptions<TData, Error, TData, QueryKey>, 'queryKey' | 'queryFn'>;
 
 // Types for mutation options
-export type MutationOptions<TData, TVariables> = Omit<
-  UseMutationOptions<TData, Error, TVariables>,
-  'mutationFn'
->;
+export type MutationOptions<TData, TVariables> = Omit<UseMutationOptions<TData, Error, TVariables>, 'mutationFn'>;
 
 // Generic hook for GET requests
-export function useApiQuery<TData>(
-  queryKey: QueryKey,
-  queryFn: () => Promise<TData>,
-  options?: QueryOptions<TData>
-) {
+export function useApiQuery<TData>(queryKey: QueryKey, queryFn: () => Promise<TData>, options?: QueryOptions<TData>) {
   return useQuery<TData, Error>({
     queryKey,
     queryFn,
@@ -57,7 +44,7 @@ export function useApiQuery<TData>(
 // Generic hook for mutations
 export function useApiMutation<TData, TVariables>(
   mutationFn: (variables: TVariables) => Promise<TData>,
-  options?: MutationOptions<TData, TVariables>
+  options?: MutationOptions<TData, TVariables>,
 ) {
   return useMutation<TData, Error, TVariables>({
     mutationFn,
