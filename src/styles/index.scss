@@ -1,0 +1,18 @@
+@layer tailwind-base, theme, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@layer theme {
+  @import 'theme/themes/app/app-light/theme.scss';
+
+  table {
+    border-collapse: unset;
+  }
+}

@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+
+@import '../../lara/lara-light/indigo/theme.scss';
+
+html {
+  // base size for rem
+  font-size: 16px;
+}
+
+
+@import './_layout';
+@import './extensions/_extensions';

@@ -1,0 +1,27 @@
+:root {
+  --project-view-task-top-margin: 68px;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  // background: var(--Color-Gray-gray-300, #D3DCDE);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3.5px;
+  background: var(--Color-Gray-gray-300, #d3dcde);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
